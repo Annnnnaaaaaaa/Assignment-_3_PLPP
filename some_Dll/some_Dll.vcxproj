@@ -153,9 +153,12 @@
   <ItemGroup>
     <ClInclude Include="cipher_api.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="cipher.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cipher.cpp" />
+    <ClCompile Include="cipher_api.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
