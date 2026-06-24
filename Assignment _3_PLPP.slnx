@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Assignment _3_PLPP/Assignment _3_PLPP.vcxproj" />
+  <Project Path="some_Dll/some_Dll.vcxproj" />
+</Solution>
