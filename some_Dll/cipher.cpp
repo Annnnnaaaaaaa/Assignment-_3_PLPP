@@ -45,8 +45,9 @@ VigenereCipher::VigenereCipher(const std::string& key) : key_(key) {}
 std::string VigenereCipher::encrypt(const std::string& text) {
     std::string result = text;
     int keyIndex = 0;
-    for (char& c : result) { // для кожного символу c в рядку result
+    for (int i = 0; i < (int)result.size(); i++) { // для кожного символу c в рядку result
                              // & означає посилання на саму літеру з рядка, а не її копію. Тому коли ми змінюємо c, змінюється і сам рядок result
+        unsigned char c = result[i];
         if (std::isalpha(c)) {
             int shift = std::toupper(key_[keyIndex]) - 'A';
             // std - стандартна бібліотека C++, живуть всі вбудовані інструменти
@@ -60,6 +61,7 @@ std::string VigenereCipher::encrypt(const std::string& text) {
                 c = c + shift;
                 while (c > 'z') c -= 26;
             }
+            result[i] = c;
             keyIndex++;
             if (keyIndex == key_.size()) 
                 keyIndex = 0;
@@ -71,7 +73,8 @@ std::string VigenereCipher::encrypt(const std::string& text) {
 std::string VigenereCipher::decrypt(const std::string& text) {
     std::string result = text;
     int keyIndex = 0;
-    for (char& c : result) {
+    for (int i = 0; i < (int)result.size(); i++) {
+        unsigned char c = result[i];
         if (std::isalpha(c)) {
             int shift = std::toupper(key_[keyIndex]) - 'A';
 
@@ -83,6 +86,7 @@ std::string VigenereCipher::decrypt(const std::string& text) {
                 c = c - shift;
                 while (c < 'a') c += 26;
             }
+            result[i] = c;
             keyIndex++;
             if (keyIndex == key_.size())
                 keyIndex = 0;
